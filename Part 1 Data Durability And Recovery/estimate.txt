@@ -1,0 +1,7 @@
+Write a paragraph or two describing the achievable Recovery Time Objective (RTO) and Recovery Point Objective (RPO) for this Multi-AZ, multi-region database in terms of:
+
+Minimum RTO for a single AZ outage: When a single AZ outage occurs, the Multi-AZ feature will automatically failover to the standby replica in another AZ in the same region. It takes about a few minutes.
+Minimum RTO for a single region outage: When a single region outage occurs, the RTO can be slightly longer. In the standby region, failover to the read replica may need application reconfiguration, etc. 
+It takes several minutes to potentially a few hours.
+Minimum RPO for a single AZ outage:  When a single AZ outage occurs, the RPO is minimal or even zero. Due to the mechanism of synchronous replication of the primary database to a backup in another AZ, data is continuously replicated. This synchronous replica is always up to date with the main database.
+Minimum RPO for a single region outage: When there is a single region outage, the RPO can take from a few seconds to a few minutes. It depends on the replication lag between the primary region and the standby region.

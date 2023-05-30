@@ -1,0 +1,50 @@
+C:\Users\SEED085\Downloads>ssh -i "standby-ec2-key.pem" ec2-user@ec2-54-214-209-200.us-west-2.compute.amazonaws.com
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+Last login: Tue May 30 08:06:18 2023 from 8.29.230.18
+[ec2-user@ip-10-2-10-65 ~]$ mysql -h database-readreplica.c0u2lp4d7jzb.us-west-2.rds.amazonaws.com -u admin -p udacity
+Enter password:
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.32 Source distribution
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> select * from Partners;
++----------+------+------+
+| PersonID | Name | age  |
++----------+------+------+
+|        1 | Leo  |   28 |
++----------+------+------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO Partners(PersonID, Name, age)    VALUES (3, 'Lily', 20);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from Partners;
++----------+------+------+
+| PersonID | Name | age  |
++----------+------+------+
+|        1 | Leo  |   28 |
+|        3 | Lily |   20 |
++----------+------+------+
+2 rows in set (0.00 sec)
+
+mysql>
